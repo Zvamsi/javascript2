@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         The complex frameset page
+      </title>
+      <script>
+         let pagesVisited=new Array();
+         let returnValue;
+         function returnPagesVisited(){
+            if(pagesVisited.length!=0){
+               returnValue="So far you have visited the following pages\n"
+            let pagesVisitedIndex;
+            let numOfPagesVisited=pagesVisited.length;
+            for(pagesVisitedIndex=0;pagesVisitedIndex<numOfPagesVisited;pagesVisitedIndex++){
+               returnValue=returnValue+pagesVisited[pagesVisitedIndex]+"\n";
+            }
+            
+            }else{
+               returnValue="No pages visited so far";
+
+            }
+            return returnValue;
+         }
+         
+         function returnNone(){
+            pagesVisited=[];
+            returnValue="";
+            return returnValue;
+         }
+
+         function addPage(fileName){
+            let fileNameStart=fileName.lastIndexOf('/')+1;
+            fileName=fileName.substr(fileNameStart)
+            pagesVisited[pagesVisited.length]=fileName;
+            return true;
+         }
+      </script>
+   </head>
+      <frameset name="something" cols="200,*">
+         <frame name="fraMenu" src="menu_page.html">
+         <frame name="fraMain" src="main_page.html">
+      </frameset>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+
+      </title>
+   </head>
+   <body>
+      
+      <script>
+         let array=new Array();
+         let element;
+         let i=0;
+         do{
+            element=prompt("Enter element","");
+            if(element!=""){
+               array[i]=element;
+            i++;
+            }
+            
+         }while(element!="")
+         
+         array.sort();
+         document.write(array.join("<br>"));
+         
+      </script>
+   </body>
+</html>

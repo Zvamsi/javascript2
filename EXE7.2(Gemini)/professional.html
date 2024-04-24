@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Professional AS.NET 2.0</title>
+    <script>
+      function addToCart() {
+        let bookTitle = document.title; // Get book title from the popup's title
+        window.opener.addToCart(bookTitle); // Call opener's addToCart function with title
+        window.close(); // Close the popup window after adding to cart
+      }
+    </script>
+  </head>
+  <body>
+    <form name="form1">
+      <strong>Professional AS.NET 2.0</strong>
+      <br>
+      Subjects
+      <br>
+      ASP
+      <br>
+      <p name="bookName" value="Professional ASP.NET 2.0" style="margin: 0px;">Professional AS.NET 2.0/p>
+      <br>
+      <HR color="blue">
+      <p><strong>Book overview</strong></p>
+      <p>This is comphrensive book published by famouse author and he is the author of many international selling books. This book is majourly coursed on .NET solutions</p>
+
+      <input type="button" value="Add Item" onclick="addToCart()">
+    </form>
+  </body>
+</html>

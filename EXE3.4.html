@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         
+      </title>
+      <script>
+         function createTable(start,end,table){
+            for(i=start;i<=end;i++){
+               document.write(table+'*'+i+'='+i*table+'<br>');
+            }
+         }
+      </script>
+   </head>
+   <body>
+      <script>
+         let start;
+         do{
+            start=Number(prompt("enter start number"," "));
+         }while(isNaN(start));
+         do{
+            end=Number(prompt("Enter end number"));
+         }while(isNaN(end));
+         let end=Number(prompt("enter end number",""));
+         let table=Number(prompt("Enter which table you want"));
+         
+        createTable(start,end,table);
+      </script>
+   </body>
+</html>

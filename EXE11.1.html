@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>count visiting times</title>
+   </head>
+   <body>
+      
+      <script>
+         function getCookie(cookieName){
+            let cookieValue=document.cookie;
+            let cookieva=cookieValue.slice(cookieValue.indexOf("=")+1);
+            return cookieva;
+         }
+         let date=new Date;
+      
+         date.setMonth(date.getMonth()-1);
+         let count1=getCookie("No.visited");
+         count1++;
+         document.cookie="No.visited="+(count1||0)+";expires=date";
+         alert("this is "+count1+" times visiting this website");
+      </script>
+      
+   </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .boxOne {
+        height: 100px;
+        width: 100px;
+        background-color: rgb(14, 250, 6);
+        position: relative;
+        display: none;
+      }
+      .boxTwo {
+        height: 100px;
+        width: 100px;
+        background-color: rgb(255, 5, 5);
+        position: relative;
+        display: none;
+      }
+      .democlass{  
+         display: inline-block;
+      }
+      .democlass2{  
+        display: inline-block;
+      }
+    </style>
+    <title>Exercise 12.1</title>
+  </head>
+  <body>
+    <a id="js-first-link" href="javascript: first_onclick('first');">Show First Box</a>
+    <a id="js-second-link" href="javascript: first_onclick('second');"
+      >Show second Box</a> <br>
+    <div id="js-boxOne" class="boxOne"></div>
+    <div id="js-boxTwo" class="boxTwo"></div>
+
+    <script>
+      function first_onclick(event) {
+        let firstLink = document.getElementById("js-first-link");
+        let firstBox = document.getElementById("js-boxOne");
+        const styles=window.getComputedStyle(firstBox);
+        let secondLink=document.getElementById("js-second-link");
+        let secondBox=document.getElementById("js-boxTwo");
+        if(event=="first"){
+         if(firstBox.classList.contains("democlass")){
+            firstBox.classList.remove("democlass");
+         }else{
+            firstBox.classList.add("democlass");
+         }
+         
+        }else if(event==="second"){
+         if(secondBox.classList.contains("democlass2")){
+            secondBox.classList.remove("democlass2");
+         }else{
+            secondBox.classList.add("democlass2");
+         }
+        }
+        //firstBox.setAttribute("class","democlass");
+      }
+      
+    </script>
+  </body>
+</html>

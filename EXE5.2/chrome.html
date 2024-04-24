@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body onload="redirect()">
+    <h2>Welcome to the CHROME only page</h2>
+    <script>
+      function redirect() {
+        let browserName = navigator.userAgent;
+        console.log(browserName);
+        let isChrome = browserName.indexOf("Edg");
+        console.log(isChrome);
+        if (isChrome < 0) {
+          window.location.replace("../EXE5.2/IE.html");
+        }
+      }
+    </script>
+  </body>
+</html>

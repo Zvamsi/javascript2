@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         BEN 10 COMIC
+      </title>
+      <script>
+         function addToCart(){
+            let noOfItems=window.opener(noOfItems)
+            console.log(noOfItems);
+            let index=noOfItems.length;
+            console.log(index);
+            noOfItems[index]=document.form1.strong;
+            console.log(noOfItems);
+            alert("Item added to cart")
+         }
+      </script>
+   </head>
+   <body>
+      <form name="form1">
+         <strong>BEN 10 COMIC</strong>
+      <br>
+      subjects
+      <br>
+      Ben 10
+      <br>
+      <p name="bookName" value="Ben 10 ULTRA" style="margin: 0px;">Ben 10 ULTRA</p>
+      <br>
+      <HR color="blue">
+         <p><strong>Book overview</strong></p>
+         <p>Ben 10 comic is the most seller comic in india and worldwide.The fans not only children but also adults and many retired citizens</p>
+
+         <input type="button" value="Add Item" onclick="return addToCart()">
+      </form>
+      
+   </body>
+</html>

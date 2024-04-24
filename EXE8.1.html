@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         regular EXP check
+      </title>
+   </head>
+   <body>
+      
+      <script>
+         let mystring="This sentence has a false and and we need to fix fix it.";
+         //let myReg=/(\b\w+\b) \1/g;
+         let myReg=new RegExp("(\\b\\w+\\b) \\1","g");
+         mystring=mystring.replace(myReg,"$");
+         console.log(mystring);
+      </script>
+   </body>
+</html>

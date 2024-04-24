@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Books</title>
+    <script>
+      let detailsWindow;
+      let noOfItems = []; // Initialize noOfItems as an empty array
+
+      function showDetails(bookURL) {
+        detailsWindow = window.open(bookURL, 'bookDetails', 'width=100px,height=150px');
+        detailsWindow.focus();
+        return false;
+      }
+
+      function addToCart(bookTitle) {
+        noOfItems.push(bookTitle); // Add book title to noOfItems array
+        alert("Item added to cart");
+      }
+
+      function showCart() {
+        let cartWindow = window.open("cart.html", "cartDetails", "width=400px,height=300px");
+        let cartContent = "";
+        if (noOfItems.length === 0) {
+          cartContent = "Cart is empty";
+        } else {
+          for (let item of noOfItems) {
+            cartContent += item + " ( <a href='javascript:void(0)' onclick='removeFromCart(\"" + item + "\")'>Remove</a> )<br>";
+          }
+        }
+        cartWindow.document.write(cartContent);
+        cartWindow.document.close(); // Close cart window after writing content
+      }
+
+      function removeFromCart(itemTitle) {
+        let index = noOfItems.indexOf(itemTitle); // Find item index
+        if (index !== -1) {
+          noOfItems.splice(index, 1); // Remove item from array
+          showCart(); // Update cart popup after removal
+        } else {
+          alert("Item not found in cart");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <h2>Online Book Buyer</h2>
+        <input type="button" value="showCart" onclick="showCart()">
+      </div>
+    </center>
+
+    <p>Click any of the items below for more details</p>
+    <strong>Professional Active pages .Net</strong>
+    <br>
+    <img
+      src="../images/Screenshot (11).png"
+      border="0"
+      height="200px"
+      onclick="return showDetails('professional.html')"
+    >
+    <br>
+    <strong>Ben 10 COMIC</strong>
+    <br>
+    <img
+      src="../images/Screenshot (28).png"
+      border="0"
+      height="200px"
+      onclick="return showDetails('comic.html')"
+    >
+  </body>
+</html>

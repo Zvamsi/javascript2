@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         Online Books
+      </title>
+      <script>
+         let detailsWindow;
+         let noOfItems=5;
+         
+         
+         function showDetails(bookURL){
+            detailsWindow=window.open(bookURL,'bookDetails',width="100px",height="150px")
+            detailsWindow.focus();
+            return false;
+         }
+
+         function showCart(){
+            
+         }
+
+         
+      </script>
+   </head>
+   <body>
+      <center><div  style="display: flex; align-items: center; justify-content: space-between;"><h2>Online book buyer</h2>
+      <input type="button" value="showCart" onclick="return showCart()">
+      </div></center>
+
+      <p>
+         click any of the items below for more details
+      </p>
+      <strong>Professional Active pages .Net</strong>
+      <br>
+      <img src="../images/Screenshot (11).png" border="0" height="200px" onclick="return showDetails('professional.html')"><br>
+      <strong>Ben 10 COMIC</strong><br>
+      <img src="../images/Screenshot (28).png" border='0' height="200px" onclick="return showDetails('comic.html')">
+
+   </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         page A
+      </title>
+      <script>
+         function buttonShowClicked_onclick(){
+            document.form1.txtPagesVisited.value=window.top.returnPagesVisited();
+         }
+         function setFrameAndPageControls(linkIndex){
+            let formObject=window.parent.parent.fraMenu.document.form1;
+            formObject.choosePage.selectedIndex=linkIndex;
+            if(window.parent.fraTop==window.self){
+               formObject.radFrame[0].checked=true;
+
+            }else{
+               formObject.radFrame[1].checked=true;
+            }
+            return true;
+         }
+         function buttonClearCliked_onclick(){
+            document.form1.txtPagesVisited.value=window.top.returnNone();
+         }
+      </script>
+   </head>
+   <body onload="window.top.addPage(window.location.href);">
+      <center><font size="6">This is page C</font></center>
+      <p>
+         <a href="page_a.html" name="pageALink" onclick="return setFrameAndPageControls(0)">page A</a>
+         <a href="page_b.html" name="pageBLink" onclick="return setFrameAndPageControls()">page B</a>
+         <a href="page_c.html" name="pageCLink" onclick="return setFrameAndPageControls()">page_c</a>
+         <a href="page_d.html" name="pageDLink" onclick="return setFrameAndPageControls()">page_D</a>
+      </p>
+      <form name="form1">
+         <textarea name="txtPagesVisited" cols="35" rows="10" wrap="hard"></textarea>
+         <br>
+         <input type="button" value="list pages visited" name="buttonShowClicked" onclick="buttonShowClicked_onclick()"><br><br>
+         <input type="button" value="clear list pages visited" name="buttonClearClicked" onclick="return buttonClearCliked_onclick()">
+      </form>
+   </body>
+</html>

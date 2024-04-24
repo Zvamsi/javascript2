@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            
+        </title>
+        <script>
+            function toFix(num1,deci){
+               // let dive=Math.pow(10,y);
+               // let z=Math.round(x*dive)/dive;
+               // return parseFloat(z);
+               let z=num1.toFixed(deci);
+               return z;
+            }
+        </script>
+    </head>
+    <body>
+        
+        <script>
+            let number=Number(prompt("Enter a number to round",6.65768));
+            let round=Number(prompt("Enter number of digits to round it",3));
+            let result=toFix(number,round);
+            document.write("The rounded value of "+number+" upto "+round+" decimal values is "+result);
+
+        </script>
+    </body>
+</html>

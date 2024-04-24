@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         LowerFrame
+      </title>
+      <script>
+         function windows_onload(){
+            document.body.style.backgroundColor="green";
+            alert("the name of the Lower widow is "+window.name);
+            alert("The parent location of lower window is"+window.parent.location.href);
+         }
+      </script>
+   </head>
+   <body onload="windows_onload()">
+      <p>Lower Frame</p>
+   </body>
+</html>

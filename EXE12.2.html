@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    #element {
+      height: 100px;
+      width: 100px;
+      background-color: rgb(148, 247, 0);
+      position: absolute;
+    }
+  </style>
+  <head>
+    <title>floating div</title>
+  </head>
+  <body onload="setInterval(movement,20)">
+    <div id="element"></div>
+    <script>
+     /* function getViewportDimensions() {
+         const width=window.innerWidth;
+         const height=window.innerHeight;
+        //const { innerWidth: width, innerHeight: height } = window;
+        return {
+          width,
+          height,
+        };
+      }*/
+      let element=document.getElementById("element");
+      let currentpos={
+            currentLeft:element.offsetLeft,
+            currentTop:element.offsetTop
+         }
+      const screenpos= { 
+            width:innerWidth-100,
+            height:innerHeight-100
+         }
+         let newLocation={
+            x:0,
+            Y:0
+         }
+         let direction="down";
+
+      function movement(){
+         
+         //console.log(element);
+        // console.log(currentpos);
+        // console.log(screenpos);
+         
+         if(direction==="down"){
+            newLocation={
+               X:currentpos.currentLeft,
+               Y:currentpos.currentTop+2
+            }
+            currentpos={
+               currentLeft:currentpos.currentLeft,
+               currentTop:currentpos.currentTop+2
+            }
+         //   console.log(newLocation);
+         //   console.log(newLocation.Y);
+          //  console.log(screenpos.height);
+            if((newLocation.Y===screenpos.height)||(newLocation.Y===screenpos.height-1)&&(newLocation.X===8||9||10)){
+               direction="right";
+            }
+          //  console.log(direction);
+         }
+         if(direction==="right"){
+            newLocation={
+               X:currentpos.currentLeft+2,
+               Y:currentpos.currentTop
+            }
+            currentpos={
+               currentLeft:currentpos.currentLeft+2,
+               currentTop:currentpos.currentTop
+            }
+           // console.log(newLocation.X);
+           // console.log(screenpos.width);
+           // console.log(direction);
+            if((newLocation.X===screenpos.width)||(newLocation.X===screenpos.width-1)){
+               direction="top";
+            }
+         }
+         if(direction==="top"){
+            newLocation={
+               X:currentpos.currentLeft,
+               Y:currentpos.currentTop-2
+            }
+            currentpos={
+               currentLeft:currentpos.currentLeft,
+               currentTop:currentpos.currentTop-2
+            }
+            //console.log(newLocation.Y);
+           // console.log(direction);
+            if(newLocation.Y<0){
+               direction="left";
+            }
+         }
+         if(direction==="left"){
+            newLocation={
+               X:currentpos.currentLeft-2,
+               Y:currentpos.currentTop
+            }
+            currentpos={
+               currentLeft:currentpos.currentLeft-2,
+               currentTop:currentpos.currentTop
+            }
+            if(newLocation.X<0){
+               direction="down";
+            } 
+         }
+        /* if(direction==="left"){
+            newLocation={
+               X:currentpos.currentLeft,
+               Y:currentpos.currentTop-2
+            }
+         }
+         */
+         
+         //console.log(newLocation.Y);
+         //console.log(screenpos.height);
+         element.style.left=newLocation.X+"px";
+         element.style.top=newLocation.Y+"px";
+      }
+    </script>
+  </body>
+</html>

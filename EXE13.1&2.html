@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         
+      </style>
+      <title>
+
+      </title>
+   </head>
+   <body>
+      
+      <script>
+        /* let HTML="<table></table>";
+         let TableHead="<thead></thead>";
+         let TableData1="<td></td>";
+         let TableData2="<td></td>";
+         let TableData3="<td></td>";
+         let TableData4="<td></td>";
+         let TableData5="<td></td>";
+         let TableData6="<td></td>";
+         let TableData7="<td></td>";
+         let TableData8="<td></td>";
+         let TableData9="<td></td>";
+         let TableBody="<tbody></tbody>";
+         let TableRow1="<tr></tr>";
+         let TableRow2="<tr></tr>";
+         let TableRow3="<tr></tr>";
+         */
+        let table=document.createElement("table");
+        table.setAttribute("border","1px solid");
+        table.setAttribute("width","100%");
+        table.setAttribute('style', 'border-collapse: collapse;');
+       // console.log(table);
+        let tableHead=document.createElement("thead");
+        //console.log(tableHead);
+        let tableRow1=document.createElement("tr");
+        tableRow1.setAttribute("align","center");
+        //console.log(tableRow1);
+        let tableData1=document.createElement("td");
+        let tableData2=document.createElement("td");
+        let tableData3=document.createElement("td");
+        tableData1.innerHTML="car";
+        tableData2.innerHTML="Top Speed";
+        tableData3.innerHTML="Price";
+        //console.log(tableData1);
+        tableRow1.appendChild(tableData1);
+        tableRow1.appendChild(tableData2);
+        tableRow1.appendChild(tableData3);
+        //console.log(tableRow1);
+        tableHead.appendChild(tableRow1);
+
+        let tableData4=document.createElement("td");
+        let tableData5=document.createElement("td");
+        let tableData6=document.createElement("td");
+        let tableData7=document.createElement("td");
+        let tableData8=document.createElement("td");
+        let tableData9=document.createElement("td");
+        let tableRow2=document.createElement("tr");
+        let tableRow3=document.createElement("tr");
+        let tableBody=document.createElement("tbody");
+        tableData4.innerHTML="chevrolet";
+        tableData5.innerHTML="120mph";
+        tableData6.innerHTML="$10,000";
+        tableData7.innerHTML="pontaic";
+        tableData8.innerHTML="140kmph";
+        tableData9.innerHTML="$20,000";
+
+        tableRow2.appendChild(tableData4,tableData5,tableData6);
+        tableRow2.appendChild(tableData5);
+        tableRow2.appendChild(tableData6);
+        //console.log(tableRow2);
+
+        tableRow3.appendChild(tableData7);
+        tableRow3.appendChild(tableData8);
+        tableRow3.appendChild(tableData9);
+        // console.log(tableRow3);
+
+         tableBody.appendChild(tableRow2);
+         tableBody.appendChild(tableRow3);
+       //  console.log(tableBody);
+
+         table.appendChild(tableHead);
+         table.appendChild(tableBody);
+        // console.log(table);
+        /* TableData1.innerHTML="Car";
+         TableData2.innerHTML="Top Speed";
+         TableData3.innerHTML="Price";
+         console.log(TableData1);
+         TableRow1.appendChild(TableData1);
+         TableRow1.appendChild("TableData2");
+         TableRow1.appendChild("TableData3");
+         TableHead.appendChild("TableRow1");
+         HTML.appendChild("TableHead");
+         */
+        let body=document.body;
+        body.appendChild(table);
+      </script>
+   </body>
+</html>

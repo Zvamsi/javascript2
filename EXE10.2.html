@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+   <head>
+
+   </head>
+   <body>
+      
+      <script>
+         function checkForm(theForm){
+            let formValid=true;
+            let elementCount=0;
+            while(elementCount<=theForm.length){
+               if(theForm.elements[elementCount].type=="text"){
+                  if(theForm.elements[elementCount].value="")
+               {
+                  alert("please complete all form elements");
+                  theForm.elements[elementCount].focus;
+                  formValid=false;
+                  break;
+               }
+               }
+               
+            }return formValid;
+         }
+      </script>
+      <form name="form1">
+      <input type="text" id="text1" name="text1">
+   <br>
+checkbox 1 <input type="checkbox" name="checkbox1"><br>
+checkbox 2 <input type="checkbox" name="checkbox2"><br>
+<input type="text" name="text2"><p>
+<input type="button" name="submit1" value="Submit" onclick="return  checkForm(document.form1)">
+</p>
+</form>
+   </body>
+</html>

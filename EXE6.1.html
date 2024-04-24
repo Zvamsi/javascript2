@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>farenheit to celsius</title>
+   </head>
+   <body>
+      <form name="form1">
+         <h4>Enter fahrenheit temperature</h4>
+      <input name="inputBox" type="text" value="0" onchange="return calci()">
+      <h4>Corresponding Celsius is</h4>
+      <input name="outputBox" type="text" value="-18">
+      </form>
+      
+      <script>
+         function calci(){
+         let farenheit=document.form1.inputBox.value;
+         let centigrade;
+         centigrade=5/9*(farenheit-32);
+         centigrade=Math.round(centigrade);
+         document.form1.outputBox.value=centigrade;
+         }
+         
+      </script>
+   </body>
+</html>

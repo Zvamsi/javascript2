@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         image advertiser
+      </title>
+   </head>
+   
+      <script>
+         let no=1;
+         let lastno=3;
+         let HTML;
+         function window_onload(){
+            window.setTimeout("imgChange()",4000);
+         }
+         function imgChange(){
+            no++;
+            HTML="images/advert"+no+".png";
+         document.image.src=HTML;
+         if(no<lastno){
+            window.setTimeout("imgChange()",4000);
+         }else{
+            let rand=Math.ceil(Math.random())*3
+            console.log(rand);
+            HTML="images/advert"+rand+".png";
+            window.setTimeout("document.image.src=HTML");
+         }
+         
+         }
+         
+      </script>
+      <body onload="window_onload()">
+      <form name="form1">
+         <h1>Adverter</h1>
+   <img name="image" src="images/advert1.png" alt="">
+      </form>
+         
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script>
+         let newWindow;
+         function butOpenWin_onclick(){
+            let winTop=(screen.height/2)-125;
+            let winLeft=(screen.width/2)-125;
+            console.log(winLeft);
+            let winFeatures="height=250,width=250";
+            winFeatures=winFeatures+"left="+winLeft+",";
+            winFeatures=winFeatures+"top="+winTop;
+            newWindow=open("newwindow.html","window object",winFeatures)
+         }
+
+         function butGetText_onclick(){
+            if(typeof(newWindow)=="undefined" || newWindow.closed==true){
+               alert("no window is open");
+               document.form1.text1.value=""
+            }else{
+               document.form1.text1.value=newWindow.document.form1.text1.value;
+            }
+         }
+         function window_unload(){
+            if(typeof(newWindow)!="undefined" && newWindow.closed==false){
+               newWindow.close();
+            }
+         }
+      </script>
+   </head>
+   <body onunload="window_unload()">
+      <form name="form1">
+         <input type="button" value="open new Window" name="butOpenWindow" onclick="butOpenWin_onclick()">
+         <br>
+         new window's text <br>
+         <input type="text" name="text1"> <br>
+         <input type="button" value="Get Text" name="butGetText" onclick="butGetText_onclick()">
+      </form>
+   </body>
+</html>

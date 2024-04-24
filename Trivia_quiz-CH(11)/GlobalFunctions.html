@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      
+      <title>
+         fraGlobalFunctions
+      </title>
+      <script>
+      </script>      
+   </head>
+   <body>
+      <script>
+
+         //variables declaration
+         let questions=new Array();
+         let answers=new Array();
+         let questionsAsked;
+         let numOfQuestionsAsked=0;
+         let numOfQuestionsCorrect=0;
+         let currentQNumber=-1;
+         questionsAsked=new Array();
+         let current;
+         
+
+         /*questions[0]=new Array();
+         questions[0][0]='Who were the Beatles ?';
+         questions[0][1]='A sixties rock group from Liverpool';
+         questions[0][2]='Four musically gifted insects';
+         questions[0][3]='German cars';
+         questions[0][4]='I don\'t know. Can i have the questions on baseball please?'
+         answers[0]='A'; */
+         questions[0]="how many subjects are there in 10th ??"
+         answers[0]=7;
+         questions[1]=new Array();
+         questions[1][0]='favourite food';
+         questions[1][1]='apple';
+         questions[1][2]='grapes';
+         questions[1][3]='orange';
+         questions[1][4]='pine apple';
+         answers[1]='B';
+         questions[2]=new Array();
+         questions[2][0]='favourite hero';
+         questions[2][1]='salman khan';
+         questions[2][2]='PRABAS';
+         questions[2][3]='kamal hasan';
+         questions[2][4]='surya';
+         answers[2]='B';
+         //text based questions
+         questions[3]="what is the Indian National Fruit";
+         answers[3]=/mango/i;
+         //answers[3]="\\bsax(ophone)?\\b";
+         questions[4]="who is the founder of starlink ??";
+         answers[4]=/(elon)?\s*(revere)?\s*(musk)?(elon|musk)/i;
+         //answers[4]="Richard\s*(Milhous)?\s*Nixon","i";
+;
+         function sample(){
+            console.log("hello guys how are you ??")
+         }
+         function getCookieValue(cookieName){
+            let cookieValue=document.cookie;
+            let cookieStartsAt=cookieValue.indexOf(" ",cookieName+"=");
+            if(cookieStartsAt==-1){
+               cookieStartsAt=cookieValue.indexOf(cookieName+"=");
+            }
+            if(cookieStartsAt==-1){
+               cookieValue=null;
+            }
+            else{
+               cookieStartsAt=cookieValue.indexOf('=',cookieStartsAt)+1;
+               let cookieEndsAt=cookieValue.indexOf(";",cookieStartsAt);
+               if(cookieStartsAt==-1){
+                  cookieEndsAt=cookieValue.length;
+               }
+               cookieValue=unescape(cookieValue.substring(cookieStartsAt,cookieEndsAt));
+            }return cookieValue;
+         }
+         function setCookie(cookieName,cookieValue,cookiePath,cookieExpires){
+            cookieValue=escape(cookieValue);
+            if(cookieExpires==""){
+               let nowDate=new Date();
+               nowDate.setMonth(nowDate.getMonth()+6);
+               cookieExpires=nowDate.toGMTString();
+               console.log(cookieExpires);
+            }
+            if(cookiePath!=""){
+               cookiePath="path="+cookiePath;
+            }
+            cookieValue=unescape(cookieValue);
+            document.cookie=cookieName+"="+cookieValue+";expires="+cookieExpires+";"+cookiePath;
+         }
+
+         //function to reset the quiz on clicking a button
+         function resetQuiz(){
+            let indexCounter;
+            currentQNumber=-1;
+            
+            for(indexCounter=0;indexCounter<questions.length;indexCounter++){
+               questionsAsked[indexCounter]=false;
+            }
+            numOfQuestionsAsked=0;
+            numOfQuestionsCorrect=0;
+         
+         }
+
+         //function to check correct answer
+         function answerCorrect(questionNumber,answer){
+            let correct=false;
+
+            let answerRegExp=new RegExp(answers[questionNumber],"i");
+            if(typeof questions[questionNumber]=="string"){
+               if (answer.search(answerRegExp)!=-1){
+               numOfQuestionsCorrect++;
+               correct=true;
+            }return correct;
+            }else{
+               if(answer==answers[questionNumber]){
+               numOfQuestionsCorrect++;
+               correct=true;
+            }
+            return correct;
+            }
+            
+           /*
+            */
+         }
+         let questionHTML;
+         //function to get question
+         function getQuestion(){
+            console.log(questionsAsked);
+            console.log(questions.length);
+            console.log(numOfQuestionsAsked);
+            if(questions.length!=numOfQuestionsAsked){
+               
+               questionNumber=Math.floor(Math.random()*(questions.length));
+               while (questionsAsked[questionNumber]==true){
+                  questionNumber=Math.floor(Math.random()*(questions.length));
+               }
+               
+            
+            
+            //
+            let questionLength=questions[questionNumber].length;
+            let questionChoice;
+            numOfQuestionsAsked++;
+            questionHTML="<h4>Question"+numOfQuestionsAsked+"</h4>";
+
+            if(typeof questions[questionNumber]=="string"){
+               questionHTML=questionHTML+"<p>"+questions[questionNumber]+"</p>";
+               questionHTML=questionHTML+"<p><input type=text name=answerText";
+               questionHTML=questionHTML+" maxlength=50 size=35</p>";
+               //questionHTML=questionHTML+'<script>'+'document.questionForm.answerText.value=""; <\/script>'
+            }else{
+            questionHTML=questionHTML="<p>"+questions[questionNumber][0]+"</p>";
+            for(questionChoice=1;questionChoice<questionLength;questionChoice++){
+               questionHTML=questionHTML+"<input type='radio' name='radQuestionChoice'"
+               if(questionChoice==1){
+                  questionHTML=questionHTML+" checked";
+               }
+               questionHTML=questionHTML+">";
+               questionHTML=questionHTML+questions[questionNumber][questionChoice];
+               questionHTML=questionHTML+"<br>";
+            }
+            }
+            
+            questionHTML=questionHTML+"<br><input type='button' value='Answer Question' name='buttonNextQ' onclick='return buttonCheckQ_onclick()'>"
+            document.write(questionHTML)
+            currentQNumber=questionNumber;
+            questionsAsked[questionNumber]=true;
+            console.log(currentQNumber);
+         }else{
+            console.log("hello bro")
+            questionHTML="<h3>Quiz Complete</h3>";
+            questionHTML=questionHTML+"\n you got "+numOfQuestionsCorrect+" questions right out of "+numOfQuestionsAsked+"\n";
+            questionHTML=questionHTML+"Your trivia quiz rating is ";
+            console.log(Math.round((numOfQuestionsCorrect/numOfQuestionsAsked)*10));
+            switch(Math.round((numOfQuestionsCorrect/numOfQuestionsAsked)*10)){
+               case 0:
+               case 1:
+               case 2:
+               case 3:
+                  questionHTML=questionHTML+" Beyound embarressing";
+                  break;
+               case 7:
+               case 4:
+               case 5:
+               case 6:
+                  questionHTML=questionHTML+" Good try";
+                  break;
+               case 10:
+               case 9:
+               case 8:
+                  questionHTML=questionHTML+" You are awesome";
+                  break;
+               default:
+                  questionHTML=questionHTML+"\n I think there is some sort of mistake from developer side \n thank you";
+            }
+            let previousNoCorrect=Math.floor(getCookieValue("previousNoCorrect"));
+            let previousNoAsked=Math.floor(getCookieValue("previousNoAsked"));
+            let currentAvgScore=Math.round(numOfQuestionsCorrect/numOfQuestionsAsked*100);
+            questionHTML=questionHTML+"<br> The percentage you've answered correctly in this quiz is"+currentAvgScore+"%";
+            if(previousNoAsked==0){
+               previousNoAsked=0;
+            }
+            previousNoAsked=previousNoAsked+numOfQuestionsAsked;
+            previousNoCorrect=previousNoCorrect+numOfQuestionsCorrect;
+
+            currentAvgScore=Math.round((previousNoAsked/previousNoCorrect)*100);
+            setCookie("previousNoAsked",previousNoAsked,"","");
+            setCookie("previousNoCorrect",previousNoCorrect,"","");
+            questionHTML=questionHTML+"<br>This brings you avg score todate to"+currentAvgScore+"%";
+            questionHTML=questionHTML+"<p> <input type='button' value='reset stats' onclick=\"window.top.fraTopFrame.fraGlobalFunctions.setcookie('previousNoAsked',0,'','1 Jan 1970')\" name='buttonReset'>";
+            questionHTML=questionHTML+"<input type='button' value='reset quiz' onclick= \"window.location.replace('quizpage.html')\" +name='buttonRestart'>";
+            questionHTML=questionHTML+"<br><br>";
+            questionHTML=questionHTML+"<a href='QuizPage.html'>Start again</a>"
+         }
+            return questionHTML;
+         }
+
+         function currentQuestion(){
+            return currentQNumber;
+         }
+      </script>
+         
+      
+   </body>
+</html>

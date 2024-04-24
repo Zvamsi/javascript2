@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>class</title>
+   </head>
+   <body>
+      
+      <script type="text/javascript">
+         function custBooking(bookingId,customerName,film,showDate){
+            this.bookingId=bookingId;
+            this.customerName=customerName;
+            this.film=film;
+            this.showDate=showDate;
+         }
+         custBooking.prototype.getCustomerName=function(){
+            return this.customerName;
+         }
+         custBooking.prototype.setCustomerName=function(customerName){
+            this.customerName=customerName;
+         }
+         custBooking.prototype.getBookingId=function(){
+            return this.bookingId;
+         }
+         custBooking.prototype.setBookingId=function(bookingId){
+            this.bookingId=bookingId;
+         }
+         custBooking.prototype.getFilm=function(){
+            return this.film;
+         }
+         custBooking.prototype.setFilm=function(film){
+            this.film=film;
+         }
+         custBooking.prototype.getShowDate=function(){
+            return this.showDate;
+         }
+         custBooking.prototype.setShowDate=function(showDate){
+            this.showDate=showDate;
+         }
+         var firstBooking=new custBooking(1122,"narayanappa","Avengers end game","25 july 2024 19:00");
+         var secondBooking=new custBooking(1101,"naresh babu","Kung fu panda 4","27 march 2024 8:00");
+         document.write(firstBooking.getBookingId()+"<br>");
+         document.write(secondBooking.getCustomerName()+"<br>");
+         firstBooking.setShowDate("22 january 2005 19:00");
+         firstBooking.setFilm("hello");
+         document.write(firstBooking.getShowDate()+"<br>");
+         document.write(firstBooking.getFilm());
+      </script>
+   </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         fraQuizPage
+      </title>
+      <script>
+         
+         function cmdStartQuiz_onclick(){
+            window.top.fraTopFrame.fraGlobalFunctions.resetQuiz();
+            window.location.href="AskQuestion.html";
+         }
+      </script>
+
+      <style>
+         body{
+            background-color: grey;
+            text-align: center;
+            font-family: arial;
+            font-weight: bold;
+         }
+         input{
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+         }
+         div{
+            background-color: rgb(160, 157, 157);
+            border-style: solid;
+            border-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            border-width: 2px;
+         }
+      </style>
+   </head>
+   <body>
+      <div name="MainBodyDiv">
+         <p>Are you ready ??</p>
+         <p>Click the below button to get started <span>(ok nice to dream)</span></p>
+         <form action="frmQuiz">
+            <input type="button" value="start Quiz" name="cmdStartQuiz" onclick="cmdStartQuiz_onclick()" style="height: 30px; width: 150px;">
+         </form>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         .image-advert{
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            object-position: right;
+         }
+      </style>
+      <title>
+         cookie advertisement
+      </title>
+   </head>
+   <body>
+      <img id="js-image-advert" class="image-advert" src="images/advert1.png" alt="">
+
+      <script>
+         
+
+         function getCookie(cookieName){
+            let cookieValue=document.cookie;
+            let cookieva=cookieValue.slice(cookieValue.indexOf("=")+1);
+            return cookieva;
+         }
+         let date=new Date;
+      
+         date.setMonth(date.getMonth()-1);
+         let count1=getCookie("No.visited");
+         count1++;
+         if(count1>5){
+            count1=1;
+         }
+         document.cookie="No.visited="+(count1||0)+";expires=date";
+         //cookie creation
+         let imageElement=document.getElementById("js-image-advert");
+         console.log(imageElement);
+         imageElement.src=`images/advert${count1}.png`
+         console.log(imageElement);
+      </script>
+   </body>
+</html>

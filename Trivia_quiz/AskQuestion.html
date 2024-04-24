@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         fraQuizPage 2
+      </title>
+      <script>
+         let globalFunctions;
+         globalFunctions=window.top.fraTopFrame.fraGlobalFunctions;
+         
+
+         function getAnswer(){
+            let answer=0;
+            let sample;
+            if(document.questionForm.elements[0].type=="radio"){
+               while(document.questionForm.radQuestionChoice[answer].checked!=true){
+               answer++;
+               sample=String.fromCharCode(65+answer);
+               }
+            }else{
+               sample=document.questionForm.answerText.value;
+               console.log(sample);
+            }
+            return sample
+         }
+
+         function buttonCheckQ_onclick(){
+            let questionNumber=globalFunctions.currentQuestion();
+            console.log(questionNumber);
+            console.log(getAnswer());
+            
+            if(globalFunctions.answerCorrect(questionNumber,getAnswer())==true){
+               console.log("You got Right");
+            }else{
+               console.log("you got Wrong");
+            }
+            window.location.reload();
+         }
+      </script>
+   </head>
+   <body style="background-color: grey;">
+      <table align="center" border="2" width="70%">
+         <tr>
+            <td bgcolor="RoyalBlue">
+               <form name="questionForm">
+                  <script>
+                     
+                     document.write(globalFunctions.getQuestion());
+                    
+                     
+                  </script>
+               </form>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>

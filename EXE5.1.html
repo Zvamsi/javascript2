@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+
+      </title>
+   </head>
+   <body>
+      <a href="s01 e01.htm" name="link1" onload="return displayLinks(0)">Click me 1 <br></a>
+      <a href="S01E02.html" onclick="return displayLinks(1)">Click me 2 <br></a>
+      <a href="S01E03.html" name="link3" onclick="return displayLinks(2)">Click me 3 <br></a>
+      <a href="S02E01.html" name="link4" onclick="return displayLinks(3)">Click me 4</a>
+      <script>
+         function displayLinks(i){
+               alert(window.document.links[i].href);
+               return false;
+         }
+      </script>
+   </body>
+</html>

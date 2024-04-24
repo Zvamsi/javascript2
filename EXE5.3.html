@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <img name="img" src="images/Screenshot (29).png" width="200px" height="200px" onmouseenter="return changeImg()" onmouseleave="document.img.src='images/Screenshot (29).png'">
+    <img src="" alt="">
+    <script>
+      function changeImg(){
+         imgArray=["images/Screenshot (11).png","images/Screenshot (18).png","images/Screenshot (20).png","images/Screenshot (29).png"];
+         let img=document.img;
+         let rand=Math.floor(Math.random()*3);
+         if(imgArray==="images/Screenshot (29).png"){
+            while(imgArray==="images/Screenshot (29).png"){
+               rand=Math.floor(Math.random()*3);
+            }
+         }
+         document.img.src=imgArray[rand];
+      }
+    </script>
+  </body>
+</html>

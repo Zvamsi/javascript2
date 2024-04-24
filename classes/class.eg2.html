@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>class</title>
+   </head>
+   <body>
+      
+      <script type="text/javascript">
+         function custBooking(bookingId,customerName,film,showDate){
+            this.bookingId=bookingId;
+            this.customerName=customerName;
+            this.film=film;
+            this.showDate=showDate;
+         }
+         custBooking.prototype.getCustomerName=function(){
+            return this.customerName;
+         }
+         custBooking.prototype.setCustomerName=function(customerName){
+            this.customerName=customerName;
+         }
+         custBooking.prototype.getBookingId=function(){
+            return this.bookingId;
+         }
+         custBooking.prototype.setBookingId=function(bookingId){
+            this.bookingId=bookingId;
+         }
+         custBooking.prototype.getFilm=function(){
+            return this.film;
+         }
+         custBooking.prototype.setFilm=function(film){
+            this.film=film;
+         }
+         custBooking.prototype.getShowDate=function(){
+            return this.showDate;
+         }
+         custBooking.prototype.setShowDate=function(showDate){
+            this.showDate=showDate;
+         }
+         //cinema class
+         function cinema(){
+            this.bookings=new Array();
+         }
+         cinema.prototype.addBooking=function(bookingId,customerName,film,showDate){
+            this.bookings(bookingId)=new custBooking(bookingId,customerName,film,showDate);
+         }
+         cinema.prototype.getBookingsTable=function()
+         {
+            var booking;
+            var bookingTableHTML="<table border=1>";
+               for(booking in this.bookings){
+                  bookingTableHTML+="<tr><td>";
+                  bookingTableHTML+=this.bookings[booking].getBookingId();
+                  bookingTableHTML+="<td>";
+                     bookingTableHTML+="<tr><td>";
+                  bookingTableHTML+=this.bookings[booking].getCustomerName();
+                  bookingTableHTML+="<td>";
+                     bookingTableHTML+="<tr><td>";
+                  bookingTableHTML+=this.bookings[booking].getFilm();
+                  bookingTableHTML+="<td>";
+                     bookingTableHTML+="<tr><td>";
+                  bookingTableHTML+=this.bookings[booking].getShowDate();
+                     }
+                  bookingTableHTML+="</table>";
+                  return bookingTableHTML;
+               }
+               var london=new cinema();
+         london.addBooking(1122,"narayanappa","Avengers end game","25 july 2024 19:00");
+         london.addBooking(1101,"naresh babu","Kung fu panda 4","27 march 2024 8:00");
+         london.addBooking(1102,"Ravinder","Avengers end game","25 july 2024 19:00");
+         london.addBooking(1103,"Naveen","Kung fu panda 4","27 march 2024 8:00");
+
+         document.write(london.getBookingsTable());
+        
+      </script>
+   </body>
+</html>

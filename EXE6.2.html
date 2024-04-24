@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>
+         personal computer selection
+      </title>
+   </head>
+   <body onload="calcTotal()">
+      <form name="form1">
+         <h2>Processor</h2>
+      <select name="processor" size="1" onchange="calcTotal()">
+         <option value="1000" selected>Intel i5</option>
+         <option value="1500">Ryzen 5</option>
+         <option value="2000">Intel i7</option>
+         <option value="2500">Ryzen 7</option>
+      </select>
+      <h4><pre style="font-size: 20px;">RAM     Display  ROM</pre></h4>
+      <select name="ram" size="1" onchange="calcTotal()">
+         <option value="2000" selected>8GB</option>
+         <option value="5000">16GB</option>
+         <option value="10000">32GB</option>
+      </select>
+     <select name="display" size="1" onchange="calcTotal()">
+      <option value="0" selected>14.6 inch</option>
+      <option value="3000">15 inch(Normal)</option>
+      <option value="6000">15 inch (OLED)</option>
+      </select>
+      <select name="rom" size="1" onchange="calcTotal()">
+      <option value="500" selected>256GB</option>
+      <option value="1500">512GB</option>
+      <option value="2000">1TB</option>
+      </select>
+
+      <div name="checkboxes" onchange="calcTotal()">
+         <pre style="font-size: 20px; font-weight: bold;">Tick any additional features needed</pre>
+         
+         <input type="checkbox" name="graphics" value="7000">Graphics card <br>
+         <input type="checkbox" name="cooler" value="800">cooler
+         <br>
+         <input type="checkbox" name="backlit" value="1200">Backlit Keyboard
+         <br>
+         <input type="checkbox" name="bag" value="1000">Laptop Bag
+         <br>
+         <input type="checkbox" name="mouse" value="500">Mouse
+      </div>
+
+      <h4>Total cost</h4>
+      <input type="text" name="totalCost" value="0">
+      </form>
+      
+      <script>
+         let Total=0;
+         function calcTotal(){
+            let processorCost=document.form1.processor.options[document.form1.processor.selectedIndex].value;
+            console.log(processorCost);
+            let ramCost=document.form1.ram.options[document.form1.ram.selectedIndex].value;
+            console.log(ramCost)
+            let displayCost=document.form1.display.options[document.form1.display.selectedIndex].value;
+            console.log(displayCost)
+            let romCost=document.form1.rom.options[document.form1.rom.selectedIndex].value;
+            console.log(romCost)
+
+            //query selectorAll is used for selected all check boxes at once.
+            let addCost=document.querySelectorAll('input[type="Checkbox"]:checked');
+            Total=0;
+            console.log(addCost);
+            addCost.forEach(checkbox=>{
+               console.log(checkbox.value);
+               Total=Number(Total)+Number(checkbox.value);
+            })
+            
+            //return processorCost;
+            //Total=calcTotal();
+            document.form1.totalCost.value=Number(processorCost)+Number(ramCost)+Number(displayCost)+Number(romCost)+Number(Total);
+         }
+         
+
+      </script>
+   </body>
+</html>
+
